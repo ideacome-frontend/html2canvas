@@ -5118,6 +5118,16 @@ var UTRIE2_INDEX_2_MASK = exports.UTRIE2_INDEX_2_MASK = UTRIE2_INDEX_2_BLOCK_LEN
 
 var createTrieFromBase64 = exports.createTrieFromBase64 = function createTrieFromBase64(base64) {
     var buffer = (0, _Util.decode)(base64);
+    if (!Uint16Array.prototype.slice) {
+        Uint16Array.prototype.slice = function slice(start, end) {
+            return new Uint16Array(Array.prototype.slice.call(this, start, end));
+        };
+    }
+    if (!Uint32Array.prototype.slice) {
+        Uint32Array.prototype.slice = function slice(start, end) {
+            return new Uint32Array(Array.prototype.slice.call(this, start, end));
+        };
+    }
     var view32 = Array.isArray(buffer) ? (0, _Util.polyUint32Array)(buffer) : new Uint32Array(buffer);
     var view16 = Array.isArray(buffer) ? (0, _Util.polyUint16Array)(buffer) : new Uint16Array(buffer);
     var headerLength = 24;
