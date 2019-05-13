@@ -86,6 +86,6 @@
   "homepage": "https://html2canvas.hertzen.com",
   "license": "MIT",
   "dependencies": {
-    "css-line-break": "git+https://github.com/ideacome-frontend/css-line-break.git"
+    "css-line-break": "^1.1.1"
   }
 }
